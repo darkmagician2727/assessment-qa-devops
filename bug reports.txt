@@ -1,0 +1,52 @@
+Test Case
+
+Description: This test will ensure that bots can be deselected without losing data. 
+Steps
+1) Navigate to Duel Duo
+2) Click draw
+3) Select any add to duo on 2 bots
+4) Select one of the bots in your duo and select remove from duo
+5) Select add to duo on one of the remaining 3 bots
+
+Test postconditions
+
+The bot should move from the draw pile to your duo with out any loss of data.
+The bot should be returned to the draw pile with the same data as before.   
+
+
+
+
+
+
+Bug ID #1
+Description: Only lossess count up. All wins and all loses count up as a loss.
+Draws also count as a loss(See screenshot 1-3)
+
+Steps to reproduce: Select 2 bots that should give a win. 
+
+Expected result: Win counter increases by 1
+
+Actual result: Loss counter increases by 1
+
+Environment
+OS: Windows 10 
+browser: firefox
+11/27/23 4:05pm
+
+
+Bug ID #2
+
+Description: See all bots does not work. 
+
+Steps to reproduce: Press "See all bots" button
+
+Expected results: Display all options of bots available
+
+Actual results: Nothing happens. Console log returns the following error "ERROR GETTING BOTS ReferenceError: botsArr is not defined"
+
+Environment
+OS: Windows 10 
+browser: firefox
+11/27/23 4:05pm
+
+
