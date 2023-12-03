@@ -25,7 +25,11 @@ describe("Duel Duo tests", () => {
   test("clicking the Draw button displays the div with id = “choices”", async () => {
     await driver.get("http://localhost:8000");
     await driver.findElement(By.id("draw")).click();
-    await driver.wait(until.titleIs("Duel Duo"), 1000);
+    await driver.wait(until.elementLocated(By.id("choices")));
+
+    const choicesDiv = await driver.findElement(By.id("choices"));
+    const isDisplayed = await choicesDiv.isDisplayed();
+    expect(isDisplayed).toBe(true);
   });
 });
 
@@ -36,11 +40,17 @@ describe("Duel Duo tests", () => {
     await driver.get("http://localhost:8000");
     await driver.findElement(By.id("draw")).click();
     await driver.findElement(By.className("bot-btn")).click();
-    await driver.wait(until.titleIs("Duel Duo"), 1000);
+
+    await driver.wait(until.elementLocated(By.id("player-duo")));
+  
+    const playerDuoDiv = await driver.findElement(By.id("player-duo"));
+    const isDisplayed = await playerDuoDiv.isDisplayed();
+    expect(isDisplayed).toBe(true);
   });
 });
 
-//Check that when a bot is “Removed from Duo”, that it goes back to “choices”
+    
+
 
 describe("Duel Duo tests", () => {
   test("when a bot is “Removed from Duo”, that it goes back to “choices”", async () => {
@@ -48,6 +58,9 @@ describe("Duel Duo tests", () => {
     await driver.findElement(By.id("draw")).click();
     await driver.findElement(By.className("bot-btn")).click();
     await driver.findElement(By.className("bot-btn")).click();
-    await driver.wait(until.titleIs("Duel Duo"), 1000);
+
+  const choicesElement = await driver.findElement(By.id("choices"));
+    const isDisplayed = await choicesElement.isDisplayed();
+    expect(isDisplayed).toBe(true);
   });
 });
